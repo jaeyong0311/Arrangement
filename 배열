@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+
+int main()
+{
+    int i,j, M, N, arr[11];
+    int min, max, v1, v2, v3;
+    scanf("%d", &M);
+    for(i=0;i<M;i++)
+    {
+        scanf("%d", &N);
+        for(j=0;j<N;j++)
+        {
+            scanf("%d", &arr[j]);
+        }
+        min=max=arr[0];
+        for(j=1;j<N;j++)
+        {
+            v1=min*arr[j];
+            v2=min+arr[j];
+            v3=min-arr[j];
+            min=v1;
+            if(v2<min)min=v2;
+            if(v3<min)min=v3;
+            v1=max*arr[j];
+            v2=max+arr[j];
+            v3=max-arr[j];
+            max=v1;
+            if(v2>max)max=v2;
+            if(v3>max)max=v3;
+        }
+        
+        printf("%d\n", max);
+        printf("%d\n", min);
+        
+    }
+
+    return 0;
+}
